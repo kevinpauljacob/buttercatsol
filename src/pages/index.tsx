@@ -463,6 +463,11 @@ export default function Home() {
         canvas.remove(uploadedImage);
         setUploadedImage(null);
         setFileUploaded(false);
+
+        const remainingObjects = canvas.getObjects();
+        if (remainingObjects.length > 0) {
+          canvas.setActiveObject(remainingObjects[remainingObjects.length - 1]);
+        }
       }
       canvas.renderAll();
     }
